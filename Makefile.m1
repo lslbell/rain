@@ -1,0 +1,17 @@
+CC = gcc
+CFlags = -Wall -lncurses
+
+TARGET = myprogram
+
+SOURCES = main.c
+
+OBJECS = $(SOURCES:.c=.o)
+
+$(TARGET):$(OBJECTS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJECTS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(TARGET) $(OBJECTS)
